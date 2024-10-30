@@ -1,0 +1,71 @@
+﻿@model DSWI_T2_OcampoWilmer.Models.Producto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-5 mx-auto">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Crear Producto</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Id" class="control-label"></label>
+                            <input asp-for="Id" class="form-control" readonly />
+                            <span asp-validation-for="Id" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Nombre" class="control-label"></label>
+                            <input asp-for="Nombre" class="form-control" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IdProveedor" class="control-label"></label>
+                            <select asp-for="IdProveedor" asp-items="@ViewBag.proveedores" class="form-control">
+                                <option value="">Seleccione</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IdCategoria" class="control-label"></label>
+                            <select asp-for="IdCategoria" asp-items="@ViewBag.categorias" class="form-control">
+                                <option value="">Seleccione</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UnidadMedida" class="control-label"></label>
+                            <input asp-for="UnidadMedida" class="form-control" />
+                            <span asp-validation-for="UnidadMedida" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PrecioUnidad" class="control-label"></label>
+                            <input asp-for="PrecioUnidad" class="form-control" type="number" />
+                            <span asp-validation-for="PrecioUnidad" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Stock" class="control-label"></label>
+                            <input asp-for="Stock" class="form-control" />
+                            <span asp-validation-for="Stock" class="text-danger"></span>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="reset" value="Limpiar" class="btn btn-dark" />
+                            <input type="submit" value="Registrar" class="btn btn-success" />
+                            <a asp-action="Productos" class="btn btn-primary">Regresar</a>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        @ViewBag.msg
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

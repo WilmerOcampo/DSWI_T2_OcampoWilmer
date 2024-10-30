@@ -1,0 +1,45 @@
+﻿@model DSWI_T2_OcampoWilmer.Models.Producto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-5 mx-auto">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="mb-0">Detalles del Producto</h2>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">ID</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Id)</dd>
+
+                        <dt class="col-sm-4">Nombre</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Nombre)</dd>
+
+                        <dt class="col-sm-4">Proveedor</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.NombreProveedor)</dd>
+
+                        <dt class="col-sm-4">Categoría</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.NombreCategoria)</dd>
+
+                        <dt class="col-sm-4">Unidad de Medida</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.UnidadMedida)</dd>
+
+                        <dt class="col-sm-4">Precio por Unidad</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.PrecioUnidad)</dd>
+
+                        <dt class="col-sm-4">Stock</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Stock)</dd>
+                    </dl>
+                </div>
+                <div class="card-footer text-center">
+                    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-info" }) |
+                    <a asp-action="Productos" class="btn btn-primary">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
